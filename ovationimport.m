@@ -6,6 +6,16 @@
 % files from an experiment into Ovation. At the end of an experiment a user
 % will want to import the data. 
 
+%% Connect to the database
+connectionfile = '/Users/jacobyates/ovation_databases/local/nhb_rig1_jnk/rig1_test.connection';
+user           = 'jacob';
+
+context = NewDataContext(connectionfile, user);
+
+
+
+
+
 %% Put the user inputs up front so they can change what matters for the day
 % Some of these will change from day to day. Some will remain constant
 % throughout the course of an entire project. Lets put them at the front of
