@@ -12,9 +12,16 @@ user           = 'jacob';
 
 context = NewDataContext(connectionfile, user);
 
+% Get a list of all projects in the context
+projects = context.getProjects();
 
+% or we can get the projects that have the right name
+projects = context.getProjects('LIP target encoding');
 
+project = projects(end);
+% see notes file for adding a project
 
+experiment = project.insertExperiment('test experiment', datetime(2012, 4, 2));
 
 %% Put the user inputs up front so they can change what matters for the day
 % Some of these will change from day to day. Some will remain constant
@@ -25,16 +32,19 @@ context = NewDataContext(connectionfile, user);
 % files from a day and multiple plx files. The experimentor will convert
 % all plx files into matlab friendly versions before running this script. 
 % Mapping
-user.pdsfile            = './data/pat020212saccadeMapping1427.PDS';
-user.plxmatfile         = './data/pat020212saccadeMapping1427-02.mat';
-user.plxfile            = './data/pat020212saccadeMapping1427-02.plx';
-% Decision 
-user.pdsdecisionfile = '';
-user.anotherplxmatfile = '?';
+
+% works if you're in the ovation-pldaps-importer/ directory
+user.map_pdsfile            = './Data/jlyTest040212tmpsaccademapping1102.PDS';
+user.map_plxmatfile         = './Data/jlyTest040212tmpSaccadeMapping1103.mat';
+user.map_plxfile            = './Data/jlyTest040212tmpSaccadeMapping1103.plx';
+user.dots_pdsfile           = './Data/jlyTest040212tmpdots1109.PDS';
+user.dots_plxmatfile        = './Data/jlyTest040212tmpDots1103.mat';
+user.dots_plxfile           = './Data/jlyTest040212tmpDots1103.plx';
+
 
 
 % Some sort of qualitative flag for how the experiment went 
-user.quality            = 'good'; % ('bad')
+user.quality            = 'test'; % ('bad') 'good'
 % User specifies how many cells there were
 user.numbercells        = 3;
 % User specifies the [channel unit] position for each good unit
