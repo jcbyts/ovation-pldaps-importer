@@ -14,6 +14,8 @@ function ImportPLX(epochGroup, plxFile, bits, plxRawFile, expFile, varargin)
     %
     %      plxRawFile: Path to .plx file from wich plxFile was generated.
     
+    % Jake edited this
+    
     nargchk(5, 6, nargin); %#ok<NCHKI>
     if(nargin < 6)
         ntrials = [];
